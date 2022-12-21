@@ -1,0 +1,130 @@
+Root-Coordinator
+ {
+    Coordinator
+     {
+      Simulator
+       {
+        Path = qss/qss_gain.h
+        Parameters = "0.000105263"
+       }
+      Simulator
+       {
+        Path = qss/qss_multiplier.h
+        Parameters = "Purely static","1e-6","1e-3"
+       }
+      Simulator
+       {
+        Path = qss/qss_gain.h
+        Parameters = "19.9"
+       }
+      Simulator
+       {
+        Path = qss/qss_integrator.h
+        Parameters = "QSS3","1e-6","1e-3","1"
+       }
+      Simulator
+       {
+        Path = qss/qss_wsum.h
+        Parameters = "1","-1","0","0","0","0","0","0","2.000000e+00"
+       }
+      Simulator
+       {
+        Path = sources\constant_sci.h
+        Parameters = "1"
+       }
+      Simulator
+       {
+        Path = qss/qss_multiplier.h
+        Parameters = "Purely static","1e-6","1e-3"
+       }
+      Simulator
+       {
+        Path = qss/qss_wsum.h
+        Parameters = "-0.013","1","0","0","0","0","0","0","2.000000e+00"
+       }
+      Simulator
+       {
+        Path = qss/qss_gain.h
+        Parameters = "0.01666667"
+       }
+      Simulator
+       {
+        Path = qss/qss_nlfunction.h
+        Parameters = "((u0)^(0.6))*0.16","1.000000e+00"
+       }
+      Simulator
+       {
+        Path = sinks/gnuplot.h
+        Parameters = "1.000000e+00","set xrange [0:%tf] @ set grid @ set title 'Plot'","with lines title 'First output'","","","",""
+       }
+      Simulator
+       {
+        Path = sinks/gnuplot.h
+        Parameters = "1.000000e+00","set xrange [0:%tf] @ set grid @ set title 'Plot'","with lines title 'First output'","","","",""
+       }
+      EIC
+       {
+        (0,0);(0,0)
+       }
+      EOC
+       {
+        (2,0);(0,0)
+       }
+      IC
+       {
+        (5,0);(4,0)
+        (6,0);(7,1)
+        (7,0);(8,0)
+        (8,0);(3,0)
+        (0,0);(9,0)
+        (1,0);(2,0)
+        (3,0);(7,0)
+        (3,0);(4,1)
+        (9,0);(10,0)
+        (9,0);(1,0)
+        (9,0);(6,1)
+        (4,0);(1,1)
+        (4,0);(11,0)
+        (4,0);(6,0)
+       }
+     }
+  Simulator
+   {
+    Path = sources\sinegen_sci.h
+    Parameters = "5000","1.157407407e-5","0","120","QSS3"
+   }
+  Simulator
+   {
+    Path = sinks/gnuplot.h
+    Parameters = "1.000000e+00","set xrange [0:%tf] @ set grid @ set title 'Salida retina'","with lines title 'B_hat'","","","",""
+   }
+  Simulator
+   {
+    Path = qss/qss_wsum.h
+    Parameters = "1","1","0","0","0","0","0","0","2.000000e+00"
+   }
+  Simulator
+   {
+    Path = sources\constant_sci.h
+    Parameters = "5000"
+   }
+  Simulator
+   {
+    Path = sinks/gnuplot.h
+    Parameters = "1.000000e+00","set xrange [0:%tf] @ set grid @ set title 'Plot'","with lines title 'First output'","","","",""
+   }
+  EIC
+   {
+   }
+  EOC
+   {
+   }
+  IC
+   {
+    (0,0);(2,0)
+    (4,0);(3,1)
+    (1,0);(3,0)
+    (3,0);(5,0)
+    (3,0);(0,0)
+   }
+ }
