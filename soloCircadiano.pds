@@ -35,7 +35,7 @@ Root-Coordinator
       Simulator
        {
         Path = qss/qss_gain.h
-        Parameters = "gamma"
+        Parameters = "0.23"
        }
       Simulator
        {

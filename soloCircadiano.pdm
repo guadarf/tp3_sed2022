@@ -227,7 +227,7 @@ Coupled
                         }
                     Parameters
                         {
-                        K = Str; gamma ; Gain (Scilab)
+                        K = Str; 0.23 ; Gain (Scilab)
                         }
                     }
                 Atomic
@@ -302,7 +302,7 @@ Coupled
                     Description = Multiplier. (QSS1 to 4)
                     Graphic
                         {
-                        Position = 5520 ; -105
+                        Position = 5445 ; 195
                         Dimension = 675 ; 675
                         Direction = Right
                         Color = 15
@@ -514,8 +514,8 @@ Coupled
                     {
                     Source = Cmp ;  11 ;  1 ; -1
                     Sink = Pnt ;  5 ; -1 ; 0
-                    PointX = 5385 ; 4425 ; 4425
-                    PointY = 75 ; 75 ; -975
+                    PointX = 5310 ; 4425 ; 4425
+                    PointY = 375 ; 375 ; -975
                     }
                 Line
                     {
@@ -528,8 +528,8 @@ Coupled
                     {
                     Source = Cmp ;  10 ;  1 ; 0
                     Sink = Cmp ;  11 ;  2 ; -1
-                    PointX = 4275 ; 4425 ; 4425 ; 5385
-                    PointY = 675 ; 675 ; 375 ; 375
+                    PointX = 4275 ; 4275 ; 5310
+                    PointY = 675 ; 675 ; 675
                     }
                 Line
                     {
@@ -542,8 +542,8 @@ Coupled
                     {
                     Source = Cmp ;  11 ;  1 ; 0
                     Sink = Cmp ;  12 ;  2 ; -1
-                    PointX = 6300 ; 6510 ; 6510
-                    PointY = 225 ; 225 ; -1650
+                    PointX = 6225 ; 6510 ; 6510
+                    PointY = 525 ; 525 ; -1650
                     }
                 Line
                     {

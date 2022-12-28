@@ -1,7 +1,7 @@
 Coupled
     {
     Type = Root
-    Name = circadiano
+    Name = retina_oscilador
     Ports = 0; 0
     Description = 
     Graphic
@@ -26,7 +26,7 @@ Coupled
             Description = Sinusoidal generator.
             Graphic
                 {
-                Position = -7905 ; -3780
+                Position = -7605 ; -3480
                 Dimension = 675 ; 675
                 Direction = Right
                 Color = 15
@@ -49,7 +49,7 @@ Coupled
             Description = y = K[0] * u0 + K[1] * u1 + ... + K[7] * u7 (QSS1 to 4)
             Graphic
                 {
-                Position = -6105 ; -3360
+                Position = -5805 ; -3060
                 Dimension = 675 ; 720
                 Direction = Right
                 Color = 15
@@ -76,7 +76,7 @@ Coupled
             Description = Constant
             Graphic
                 {
-                Position = -7905 ; -2505
+                Position = -7605 ; -2205
                 Dimension = 675 ; 675
                 Direction = Right
                 Color = 15
@@ -90,12 +90,12 @@ Coupled
         Coupled
             {
             Type = Coordinator
-            Name = retina_oscilador
+            Name = retina_oscilador0
             Ports = 1; 1
             Description = Coupled DEVS model
             Graphic
                 {
-                Position = -4680; -3360
+                Position = -4380; -3060
                 Dimension = 675; 720
                 Direction = Right
                 Color = 15
@@ -1352,7 +1352,7 @@ Coupled
                                     Description = Plot input signal using GnuPlot
                                     Graphic
                                         {
-                                        Position = -3030 ; -3360
+                                        Position = -2730 ; -3060
                                         Dimension = 675 ; 720
                                         Direction = Right
                                         Color = 15
@@ -1373,29 +1373,29 @@ Coupled
                                     {
                                     Source = Cmp ;  1 ;  1 ; 0
                                     Sink = Cmp ;  2 ;  1 ; -1
-                                    PointX = -7125 ; -6240 ; -6240
-                                    PointY = -3450 ; -3450 ; -3150
+                                    PointX = -6825 ; -5940 ; -5940
+                                    PointY = -3150 ; -3150 ; -2850
                                     }
                                 Line
                                     {
                                     Source = Cmp ;  3 ;  1 ; 0
                                     Sink = Cmp ;  2 ;  2 ; -1
-                                    PointX = -7125 ; -6240 ; -6240
-                                    PointY = -2175 ; -2175 ; -2850
-                                    }
-                                Line
-                                    {
-                                    Source = Cmp ;  2 ;  1 ; 0
-                                    Sink = Cmp ;  4 ;  1 ; -1
-                                    PointX = -5325 ; -4815 ; -4815
-                                    PointY = -3000 ; -3000 ; -3000
+                                    PointX = -6825 ; -5940 ; -5940
+                                    PointY = -1875 ; -1875 ; -2550
                                     }
                                 Line
                                     {
                                     Source = Cmp ;  4 ;  1 ; 0
                                     Sink = Cmp ;  5 ;  1 ; -1
-                                    PointX = -3900 ; -3900 ; -3165
-                                    PointY = -3000 ; -3000 ; -3000
+                                    PointX = -3600 ; -3600 ; -2865
+                                    PointY = -2700 ; -2700 ; -2700
+                                    }
+                                Line
+                                    {
+                                    Source = Cmp ;  2 ;  1 ; 0
+                                    Sink = Cmp ;  4 ;  1 ; -1
+                                    PointX = -5025 ; -4515 ; -4515
+                                    PointY = -2700 ; -2700 ; -2700
                                     }
         }
     }
