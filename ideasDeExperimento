@@ -1,0 +1,14 @@
++Reproducir resultados de paper original
++Modelar un viaje (cambiar la fase del ciclod e luz oscuridad)
++Modelar los parpados como una barrera que deja pasar algod e la intensidad de la luz a la que se expone
++Modificar la luz para simular un dia de un trabajador de oficina 
++Agregar dia de semana y fin de semana (pensar como) 
++Modificar el modelo para simular un trabajador de turno nocturno
+
+Que medir?
+Duracion de sueño
+Punto medio de sueño (fase del sueño)
+fase del sistema circadiano
+
+
+
