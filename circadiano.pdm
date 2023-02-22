@@ -15,6 +15,8 @@ Coupled
         }
     Parameters
         {
+        tc = Val; 24.2 ; 
+        cuenta = Val; 0.995029 ; 
         }
     System
         {
@@ -836,7 +838,7 @@ Coupled
                                             Description = 
                                             Graphic
                                                 {
-                                                Position = -3165 ; 1650
+                                                Position = -4890 ; 525
                                                 Dimension = 480
                                                 Direction = Right
                                                 }
@@ -1022,13 +1024,13 @@ Coupled
                                             }
                                         Atomic
                                             {
-                                            Name = fXperiodo
+                                            Name = tc_atomic
                                             Ports = 0 ; 1
                                             Path = sources\constant_sci.h
                                             Description = Constant
                                             Graphic
                                                 {
-                                                Position = 1170 ; 1170
+                                                Position = -1980 ; 1170
                                                 Dimension = 675 ; 675
                                                 Direction = Right
                                                 Color = 15
@@ -1036,7 +1038,7 @@ Coupled
                                                 }
                                             Parameters
                                                 {
-                                                K = Str; 0.995029001 ; Constant output value (Scilab expression)
+                                                K = Str; tc ; Constant output value (Scilab expression)
                                                 }
                                             }
                                         Atomic
@@ -1151,6 +1153,26 @@ Coupled
                                                 K = Str; 0.000072717 ; Gain (Scilab)
                                                 }
                                             }
+                                        Atomic
+                                            {
+                                            Name = NLFunction0
+                                            Ports = 1 ; 1
+                                            Path = qss/qss_nlfunction.h
+                                            Description = Nonlinear function. (QSS1 to 4)
+                                            Graphic
+                                                {
+                                                Position = -255 ; 1140
+                                                Dimension = 675 ; 720
+                                                Direction = Right
+                                                Color = 15
+                                                Icon = %continuous%nl_function.svg
+                                                }
+                                            Parameters
+                                                {
+                                                Expression = Str; 24/(u0*0.99669) ; Expression in terms of u0,u1,....,u9
+                                                Inputs = Str; %Inputs ; 
+                                                }
+                                            }
                                         Point
                                             {
                                             ConectedLines = 1 ; 6 ; 9
@@ -1171,13 +1193,13 @@ Coupled
                                             }
                                         Point
                                             {
-                                            ConectedLines = 2 ; 16 ; 17
+                                            ConectedLines = 2 ; 15 ; 16
                                             ConectedExtrems = Org ; Org ; Org
                                             Position = 675 ; 525
                                             }
                                         Point
                                             {
-                                            ConectedLines = 3 ; 18 ; 24
+                                            ConectedLines = 3 ; 17 ; 23
                                             ConectedExtrems = Org ; Org ; Org
                                             Position = 4425 ; -975
                                             }
@@ -1192,8 +1214,8 @@ Coupled
                                             {
                                             Source = Prt ;  1 ;  1 ; 0
                                             Sink = Pnt ;  4 ; -1 ; 0
-                                            PointX = -2550 ; 675 ; 675
-                                            PointY = 1650 ; 1650 ; 525
+                                            PointX = -4275 ; -4275 ; 675
+                                            PointY = 525 ; 525 ; 525
                                             }
                                         Line
                                             {
@@ -1274,13 +1296,6 @@ Coupled
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  8 ;  1 ; 0
-                                            Sink = Cmp ;  9 ;  1 ; -1
-                                            PointX = 1950 ; 1950 ; 2085
-                                            PointY = 1500 ; 1500 ; 1500
-                                            }
-                                        Line
-                                            {
                                             Source = Cmp ;  9 ;  1 ; 0
                                             Sink = Cmp ;  10 ;  2 ; -1
                                             PointX = 3000 ; 3225 ; 3225 ; 3360
@@ -1348,6 +1363,20 @@ Coupled
                                             Sink = Cmp ;  1 ;  1 ; 0
                                             PointX = 4425 ; 4425 ; -975
                                             PointY = -975 ; -975 ; -975
+                                            }
+                                        Line
+                                            {
+                                            Source = Cmp ;  8 ;  1 ; 0
+                                            Sink = Cmp ;  14 ;  1 ; -1
+                                            PointX = -1200 ; -1200 ; -390
+                                            PointY = 1500 ; 1500 ; 1500
+                                            }
+                                        Line
+                                            {
+                                            Source = Cmp ;  14 ;  1 ; 0
+                                            Sink = Cmp ;  9 ;  1 ; -1
+                                            PointX = 525 ; 525 ; 2085
+                                            PointY = 1500 ; 1500 ; 1500
                                             }
                                         }
                                     }
