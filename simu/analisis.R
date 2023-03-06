@@ -24,26 +24,49 @@ ggplot(data,aes(x=hora, y=estado, group=dia, color=dia))+
 dev.off()
 
 procesar <-function(data){
-    hora=c()
-    tipo=c()
-    dia=c()
+    despertar=c()
+    dormir=c()
+    dia_a=c()
+    dia_d=c()
     for (i in 1:(length(data$V1)-1)){
       
       if(data$estado[i]==0 & data$estado[i+1]==1){
-        tipo=rbind(tipo, "1")
-        hora=rbind(hora,data$hora[i])
-        dia=rbind(dia,data$dia[i])
+        
+        despertar=rbind(despertar,data$hora[i])
+        dia_d=rbind(dia_d,data$dia[i])
         } else if(data$estado[i]==1 & data$estado[i+1]==0){
-        tipo=rbind(tipo, "0")
-        hora=rbind(hora,data$hora[i])
-        dia=rbind(dia,data$dia[i])
+        dormir=rbind(dormir,data$hora[i])
+        dia_a=rbind(dia_a,data$dia[i])
         }
       }
-
-  datos=data.frame(tipo=tipo,
-                   hora=hora,
-                   dia= dia)
+    
+    hora_despertar=c()
+    hora_dormir=c()
+    dia_id=c()
+    for (i in 1:(length(dormir)-1)){
+      hora_dormir=rbind(hora_dormir,dormir[i])
+      hora_despertar=rbind(hora_despertar,despertar[dia_d==dia_a[i+1]])
+      dia_id=rbind(dia_id, dia_a[i+1])
+    }
+    datos=data.frame(hora_despertar=hora_despertar,
+                     hora_dormir=hora_dormir,
+                     dia=dia_id
+    )
   return(datos)
 }
 
+#Esto no anda bien si horario de despertar es a la tarde o a la noche 
+#y si horario de dormir es despues de las doce de la noche
+#pero cualquier corte que pongamos podria andar mal
+duracion <-function(datos){
+  dormir= 24-datos$hora_dormir
+  datos$duracion=datos$hora_despertar+dormir  
+  datos$puntoMedio=datos$hora_dormir+(datos$duracion/2)
+  datos$puntoMedio[datos$puntoMedio>24]=datos$puntoMedio[datos$puntoMedio>24]-24
+  return(datos)
+}
+
+
 datos=procesar(data)
+datos=duracion(datos)
+
