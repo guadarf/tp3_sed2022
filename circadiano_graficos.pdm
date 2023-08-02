@@ -1,7 +1,7 @@
 Coupled
     {
     Type = Root
-    Name = circadiano
+    Name = circadiano_graficos
     Ports = 0; 0
     Description = 
     Graphic
@@ -1024,25 +1024,6 @@ Coupled
                                             }
                                         Atomic
                                             {
-                                            Name = tc_atomic
-                                            Ports = 0 ; 1
-                                            Path = sources\constant_sci.h
-                                            Description = Constant
-                                            Graphic
-                                                {
-                                                Position = -1980 ; 1170
-                                                Dimension = 675 ; 675
-                                                Direction = Right
-                                                Color = 15
-                                                Icon = %sources%constant.svg
-                                                }
-                                            Parameters
-                                                {
-                                                K = Str; tc ; Constant output value (Scilab expression)
-                                                }
-                                            }
-                                        Atomic
-                                            {
                                             Name = Square Pow0
                                             Ports = 1 ; 1
                                             Path = qss\xpower2.h
@@ -1173,6 +1154,25 @@ Coupled
                                                 Inputs = Str; %Inputs ; 
                                                 }
                                             }
+                                        Atomic
+                                            {
+                                            Name = Constant0
+                                            Ports = 0 ; 1
+                                            Path = sources\constant_sci.h
+                                            Description = Constant
+                                            Graphic
+                                                {
+                                                Position = -1905 ; 1470
+                                                Dimension = 675 ; 675
+                                                Direction = Right
+                                                Color = 15
+                                                Icon = %sources%constant.svg
+                                                }
+                                            Parameters
+                                                {
+                                                K = Str; 24.2 ; Constant output value (Scilab expression)
+                                                }
+                                            }
                                         Point
                                             {
                                             ConectedLines = 1 ; 6 ; 9
@@ -1296,14 +1296,14 @@ Coupled
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  9 ;  1 ; 0
-                                            Sink = Cmp ;  10 ;  2 ; -1
+                                            Source = Cmp ;  8 ;  1 ; 0
+                                            Sink = Cmp ;  9 ;  2 ; -1
                                             PointX = 3000 ; 3225 ; 3225 ; 3360
                                             PointY = 1500 ; 1500 ; 825 ; 825
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  10 ;  1 ; -1
+                                            Source = Cmp ;  9 ;  1 ; -1
                                             Sink = Pnt ;  4 ; -1 ; 0
                                             PointX = 3360 ; 3360 ; 675
                                             PointY = 525 ; 525 ; 525
@@ -1317,42 +1317,42 @@ Coupled
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  11 ;  1 ; -1
+                                            Source = Cmp ;  10 ;  1 ; -1
                                             Sink = Pnt ;  5 ; -1 ; 0
                                             PointX = 5310 ; 4425 ; 4425
                                             PointY = 375 ; 375 ; -975
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  10 ;  1 ; 0
-                                            Sink = Cmp ;  11 ;  2 ; -1
+                                            Source = Cmp ;  9 ;  1 ; 0
+                                            Sink = Cmp ;  10 ;  2 ; -1
                                             PointX = 4275 ; 4275 ; 5310
                                             PointY = 675 ; 675 ; 675
                                             }
                                         Line
                                             {
                                             Source = Cmp ;  7 ;  1 ; 0
-                                            Sink = Cmp ;  12 ;  1 ; -1
+                                            Sink = Cmp ;  11 ;  1 ; -1
                                             PointX = 5175 ; 6510 ; 6510
                                             PointY = -4725 ; -4725 ; -1950
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  11 ;  1 ; 0
-                                            Sink = Cmp ;  12 ;  2 ; -1
+                                            Source = Cmp ;  10 ;  1 ; 0
+                                            Sink = Cmp ;  11 ;  2 ; -1
                                             PointX = 6225 ; 6510 ; 6510
                                             PointY = 525 ; 525 ; -1650
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  12 ;  1 ; 0
-                                            Sink = Cmp ;  13 ;  1 ; -1
+                                            Source = Cmp ;  11 ;  1 ; 0
+                                            Sink = Cmp ;  12 ;  1 ; -1
                                             PointX = 7425 ; 7500 ; 7500 ; -4800 ; -4800 ; -3615
                                             PointY = -1800 ; -1800 ; -5400 ; -5400 ; -3525 ; -3525
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  13 ;  1 ; 0
+                                            Source = Cmp ;  12 ;  1 ; 0
                                             Sink = Cmp ;  2 ;  1 ; -1
                                             PointX = -2700 ; -2700 ; -1890
                                             PointY = -3525 ; -3525 ; -3525
@@ -1366,17 +1366,17 @@ Coupled
                                             }
                                         Line
                                             {
-                                            Source = Cmp ;  8 ;  1 ; 0
-                                            Sink = Cmp ;  14 ;  1 ; -1
-                                            PointX = -1200 ; -1200 ; -390
+                                            Source = Cmp ;  13 ;  1 ; 0
+                                            Sink = Cmp ;  8 ;  1 ; -1
+                                            PointX = 525 ; 525 ; 2085
                                             PointY = 1500 ; 1500 ; 1500
                                             }
                                         Line
                                             {
                                             Source = Cmp ;  14 ;  1 ; 0
-                                            Sink = Cmp ;  9 ;  1 ; -1
-                                            PointX = 525 ; 525 ; 2085
-                                            PointY = 1500 ; 1500 ; 1500
+                                            Sink = Cmp ;  13 ;  1 ; -1
+                                            PointX = -1125 ; -390 ; -390
+                                            PointY = 1800 ; 1800 ; 1500
                                             }
                                         }
                                     }
@@ -2498,36 +2498,48 @@ Coupled
                                                                                 Format5 = Str;  ; Formatting options for input 5
                                                                                 }
                                                                             }
+                                                                        Atomic
+                                                                            {
+                                                                            Name = Gain0
+                                                                            Ports = 1 ; 1
+                                                                            Path = qss/qss_gain.h
+                                                                            Description = Scalar gain: y = K * u (QSS1 to 4)
+                                                                            Graphic
+                                                                                {
+                                                                                Position = -5505 ; 45
+                                                                                Dimension = 675 ; 675
+                                                                                Direction = Right
+                                                                                Color = 15
+                                                                                Icon = %continuous%constant.svg
+                                                                                }
+                                                                            Parameters
+                                                                                {
+                                                                                K = Str; 0.0002 ; Gain (Scilab)
+                                                                                }
+                                                                            }
                                                                         Point
                                                                             {
-                                                                            ConectedLines = 8 ; 9 ; 14
+                                                                            ConectedLines = 7 ; 8 ; 13
                                                                             ConectedExtrems = Org ; Org ; Org
                                                                             Position = -600 ; -3300
                                                                             }
                                                                         Point
                                                                             {
-                                                                            ConectedLines = 10 ; 13 ; 14
+                                                                            ConectedLines = 9 ; 12 ; 13
                                                                             ConectedExtrems = Org ; Org ; Org
                                                                             Position = -600 ; -2850
                                                                             }
                                                                         Point
                                                                             {
-                                                                            ConectedLines = 6 ; 15 ; 16
+                                                                            ConectedLines = 5 ; 14 ; 15
                                                                             ConectedExtrems = Org ; Org ; Org
                                                                             Position = -3300 ; -3300
                                                                             }
                                                                         Point
                                                                             {
-                                                                            ConectedLines = 1 ; 17 ; 18
+                                                                            ConectedLines = 10 ; 18 ; 19
                                                                             ConectedExtrems = Org ; Org ; Org
-                                                                            Position = -8775 ; -1650
-                                                                            }
-                                                                        Line
-                                                                            {
-                                                                            Source = Cmp ;  1 ;  1 ; 0
-                                                                            Sink = Pnt ;  4 ; -1 ; 0
-                                                                            PointX = -8925 ; -8925 ; -8775
-                                                                            PointY = -1650 ; -1650 ; -1650
+                                                                            Position = -7200 ; -1125
                                                                             }
                                                                         Line
                                                                             {
@@ -2595,9 +2607,9 @@ Coupled
                                                                         Line
                                                                             {
                                                                             Source = Cmp ;  2 ;  1 ; 0
-                                                                            Sink = Cmp ;  6 ;  2 ; -1
-                                                                            PointX = -7575 ; -7575 ; -7200 ; -7200 ; -6840
-                                                                            PointY = -1050 ; -1050 ; -1050 ; -3150 ; -3150
+                                                                            Sink = Pnt ;  4 ; -1 ; 0
+                                                                            PointX = -7575 ; -7575 ; -7200 ; -7200
+                                                                            PointY = -1050 ; -1050 ; -1050 ; -1125
                                                                             }
                                                                         Line
                                                                             {
@@ -2636,17 +2648,31 @@ Coupled
                                                                             }
                                                                         Line
                                                                             {
+                                                                            Source = Cmp ;  1 ;  1 ; 0
+                                                                            Sink = Cmp ;  2 ;  1 ; -1
+                                                                            PointX = -8925 ; -8925 ; -8625 ; -8625 ; -8490
+                                                                            PointY = -1650 ; -1650 ; -1650 ; -1200 ; -1200
+                                                                            }
+                                                                        Line
+                                                                            {
                                                                             Source = Cmp ;  11 ;  4 ; -1
+                                                                            Sink = Cmp ;  12 ;  1 ; 0
+                                                                            PointX = 1710 ; -4725 ; -4725
+                                                                            PointY = 1200 ; 1200 ; 375
+                                                                            }
+                                                                        Line
+                                                                            {
+                                                                            Source = Cmp ;  12 ;  1 ; -1
                                                                             Sink = Pnt ;  4 ; -1 ; 0
-                                                                            PointX = 1710 ; -8775 ; -8775
-                                                                            PointY = 1200 ; 1200 ; -1650
+                                                                            PointX = -5640 ; -7200 ; -7200
+                                                                            PointY = 375 ; 375 ; -1125
                                                                             }
                                                                         Line
                                                                             {
                                                                             Source = Pnt ;  4 ; -1 ; 0
-                                                                            Sink = Cmp ;  2 ;  1 ; -1
-                                                                            PointX = -8775 ; -8625 ; -8625 ; -8490
-                                                                            PointY = -1650 ; -1650 ; -1200 ; -1200
+                                                                            Sink = Cmp ;  6 ;  2 ; -1
+                                                                            PointX = -7200 ; -7200 ; -6840
+                                                                            PointY = -1125 ; -3150 ; -3150
                                                                             }
         }
     }

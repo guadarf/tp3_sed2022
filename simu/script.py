@@ -11,7 +11,7 @@ import numpy as np
 POWERDEVS_HOME = Path(os.getenv('POWERDEVS_HOME','../../powerdevs/'))
 
 default_tf = 200000
-parameters = {'tc': {'start': 23.2, 'stop': 25, 'step':0.2, 'tf':200000, 'output_file':'Qm.csv'}}
+parameters = {'tc': {'start': 23.2, 'stop': 25, 'step':0.2, 'tf':20000000, 'output_file':'Qm.csv'}}
 
 def get_environment():
     
