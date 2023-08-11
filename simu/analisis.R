@@ -1,29 +1,29 @@
 rm(list = ls())
 library(ggplot2)
 library(dplyr)
+library(latex2exp)
 
-setwd("/home/guadarf/SED/TP3")
-data=read.table("~/SED/TP3/simu/Qm-tc23.800.csv", header = FALSE, sep=',',dec = ".")
-data$estado=0
-data$estado[data$V2>1]=1
-data$hora=((data$V1+(6*3600))%%86400)/3600
-data$dia=(data$V1+(6*3600))%/%86400
-data6=data[data$dia==160,]
-data=as.data.frame(data)
+setwd("/home/guadarf/SED/TP3/simu")
 
-data=data[data$dia>1,]
 
-tiff(filename="fig/estabilizacion_postCambio.tiff", 
-    units="in", 
-    width=4.5, 
-    height=3.5, 
-    pointsize=12, 
-    res=300)
-ggplot(data,aes(x=hora, y=estado, group=dia, color=dia))+
-  geom_line()
-dev.off()
+# tiff(filename="fig/estabilizacion_postCambio.tiff", 
+#     units="in", 
+#     width=4.5, 
+#     height=3.5, 
+#     pointsize=12, 
+#     res=300)
+# ggplot(data,aes(x=hora, y=estado, group=dia, color=dia))+
+#   geom_line()
+# dev.off()
 
 procesar <-function(data){
+    data$estado=0
+    data$estado[data$V2>1]=1
+    data$hora=((data$V1+(6*3600))%%86400)/3600
+    data$dia=(data$V1+(6*3600))%/%86400
+    data=as.data.frame(data)
+    data=data[data$dia>1,]
+  
     despertar=c()
     dormir=c()
 
@@ -38,7 +38,7 @@ procesar <-function(data){
         #dia_a=rbind(dia_a,data$dia[i])
         }
       }
-    
+
     hora_despertar=c()
     hora_dormir=c()
     
@@ -60,17 +60,95 @@ procesar <-function(data){
   return(datos)
 }
 
-#Esto no anda bien si horario de despertar es a la tarde o a la noche 
-#y si horario de dormir es despues de las doce de la noche
-#pero cualquier corte que pongamos podria andar mal
+
 duracion <-function(datos){
   datos$duracion=(datos$hora_despertar_abs-datos$hora_dormir_abs)/3600  
-  datos$puntoMedio=datos$hora_dormir+(datos$duracion/2)
-  datos$puntoMedio[datos$puntoMedio>24]=datos$puntoMedio[datos$puntoMedio>24]-24
   return(datos)
 }
 
+paraGraficar=c()
+for (i in seq(23.7, 24.6, 0.1)){
+  tc=sprintf("%0.3f", i)
+  data=read.table(paste("~/SED/TP3/simu/Qm-tc", tc, ".csv", sep = ""), header = FALSE, sep=',',dec = ".")
+  datos=procesar(data)
+  datos=duracion(datos)
+  datos$tc=i
+  paraGraficar=rbind(paraGraficar, datos[length(datos$tc),])
+  paraGraficar$duracion[length(paraGraficar$duracion)]=mean(datos$duracion[(length(datos$tc)-10):(length(datos$tc))])
+ 
+}
+paraGraficar$puntoMedio=paraGraficar$hora_dormir+(paraGraficar$duracion/2)
+paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]-24
 
-datos=procesar(data)
-datos=duracion(datos)
+paraGraficar$puntoMedio[paraGraficar$puntoMedio>19]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>19]-24
+paraGraficar$puntoMedio_rel=(-1)*paraGraficar$puntoMedio+paraGraficar$puntoMedio[paraGraficar$tc==24.2]
+
+tiff(filename="fig/TCvsSD.tiff", 
+     units="in", 
+     width=4.5, 
+     height=3.5, 
+     pointsize=12, 
+     res=300)
+ggplot(paraGraficar,aes(x=tc, y=duracion))+
+  geom_point()+
+  labs(y = "Duración de sueño (h)", x = TeX("$t_{c} (h)$"))  
+
+dev.off()
+
+tiff(filename="fig/TCvsPuntoMedio.tiff", 
+     units="in", 
+     width=4.5, 
+     height=3.5, 
+     pointsize=12, 
+     res=300)
+ggplot(paraGraficar,aes(x=tc, y=puntoMedio_rel))+
+  geom_point() + geom_line()+
+  labs(y = "Fase de sueño relativa (h)", x = TeX("$t_{c} (h)$"))
+dev.off()
+
+
+paraGraficar=c()
+for (i in seq(0.7, 1.2, 0.1)){
+  Vvh=sprintf("%0.3f", i)
+  print(i)
+  data=read.table(paste("~/SED/TP3/simu/Qm-Vvh", Vvh, ".csv", sep = ""), header = FALSE, sep=',',dec = ".")
+  datos=procesar(data)
+  datos=duracion(datos)
+  datos$Vvh=i
+  paraGraficar=rbind(paraGraficar, datos[length(datos$Vvh),])
+  paraGraficar$duracion[length(paraGraficar$duracion)]=mean(datos$duracion[(length(datos$Vvh)-10):(length(datos$Vvh))])
+  
+}
+paraGraficar$puntoMedio=paraGraficar$hora_dormir+(paraGraficar$duracion/2)
+paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]-24
+paraGraficar$puntoMedio[paraGraficar$puntoMedio>19]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>19]-24
+paraGraficar$puntoMedio_rel=(-1)*paraGraficar$puntoMedio+paraGraficar$puntoMedio[paraGraficar$Vvh==1]
+
+
+paraGraficar$puntoMedio=paraGraficar$hora_dormir+(paraGraficar$duracion/2)
+paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]-24
+
+
+tiff(filename="fig/VvhvsSD.tiff", 
+     units="in", 
+     width=4.5, 
+     height=3.5, 
+     pointsize=12, 
+     res=300)
+ggplot(paraGraficar,aes(x=Vvh, y=duracion))+
+  geom_point()+
+  labs(y = "Duración de sueño (h)", x = "$V_{vh}$")  
+
+dev.off()
+
+tiff(filename="fig/VVhvsPuntoMediovs.tiff", 
+     units="in", 
+     width=4.5, 
+     height=3.5, 
+     pointsize=12, 
+     res=300)
+ggplot(paraGraficar,aes(x=Vvh, y=puntoMedio_rel))+
+  geom_point() + geom_line()+
+  labs(y = "Fase de sueño relativa (h)", x = TeX("$V_{vh}$"))
+dev.off()
 
