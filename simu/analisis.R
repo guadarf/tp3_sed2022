@@ -125,9 +125,6 @@ paraGraficar$puntoMedio[paraGraficar$puntoMedio>19]=paraGraficar$puntoMedio[para
 paraGraficar$puntoMedio_rel=(-1)*paraGraficar$puntoMedio+paraGraficar$puntoMedio[paraGraficar$Vvh==1]
 
 
-paraGraficar$puntoMedio=paraGraficar$hora_dormir+(paraGraficar$duracion/2)
-paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]-24
-
 
 tiff(filename="fig/VvhvsSD.tiff", 
      units="in", 

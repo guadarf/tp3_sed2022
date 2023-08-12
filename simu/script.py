@@ -16,9 +16,9 @@ parameters = {'Vvh': {'start': 0.4, 'stop': 1.3, 'step':0.1, 'tf':20000000, 'out
 
 sets = {'set1': {'parameters': 
                     {'Vvh': 
-                        {'start': 0.6, 
-                         'stop': 1.4, 
-                         'step':0.1},
+                        {'start': 0.62, 
+                         'stop': 1.32, 
+                         'step':0.02},
                      'tc': 24.2},
                   'tf':20000000, 
                   'output_file':'Qm.csv'},
@@ -26,13 +26,13 @@ sets = {'set1': {'parameters':
                     {'tc': 
                         {'start': 23.7, 
                          'stop': 24.7, 
-                         'step':0.1},
+                         'step':0.02},
                      'Vvh': 1.0},
                   'tf':20000000, 
                   'output_file':'Qm.csv'}
         }
 
-set_chosen = 'set2'  
+set_chosen = 'set1'  
             
 def get_environment():
     
