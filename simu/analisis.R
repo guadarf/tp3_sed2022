@@ -67,14 +67,14 @@ duracion <-function(datos){
 }
 
 paraGraficar=c()
-for (i in seq(23.7, 24.6, 0.1)){
+for (i in seq(23.7, 24.6, 0.02)){
   tc=sprintf("%0.3f", i)
   data=read.table(paste("~/SED/TP3/simu/Qm-tc", tc, ".csv", sep = ""), header = FALSE, sep=',',dec = ".")
   datos=procesar(data)
   datos=duracion(datos)
   datos$tc=i
   paraGraficar=rbind(paraGraficar, datos[length(datos$tc),])
-  paraGraficar$duracion[length(paraGraficar$duracion)]=mean(datos$duracion[(length(datos$tc)-10):(length(datos$tc))])
+  paraGraficar$duracion[length(paraGraficar$duracion)]=mean(datos$duracion[(length(datos$tc)-20):(length(datos$tc))])
  
 }
 paraGraficar$puntoMedio=paraGraficar$hora_dormir+(paraGraficar$duracion/2)
@@ -108,7 +108,7 @@ dev.off()
 
 
 paraGraficar=c()
-for (i in seq(0.7, 1.2, 0.1)){
+for (i in seq(0.66, 1.3, 0.02)){
   Vvh=sprintf("%0.3f", i)
   print(i)
   data=read.table(paste("~/SED/TP3/simu/Qm-Vvh", Vvh, ".csv", sep = ""), header = FALSE, sep=',',dec = ".")
@@ -134,7 +134,7 @@ tiff(filename="fig/VvhvsSD.tiff",
      res=300)
 ggplot(paraGraficar,aes(x=Vvh, y=duracion))+
   geom_point()+
-  labs(y = "Duración de sueño (h)", x = "$V_{vh}$")  
+  labs(y = "Duración de sueño (h)", x = TeX("$V_{vh}$"))  
 
 dev.off()
 
