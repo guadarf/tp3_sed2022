@@ -108,7 +108,7 @@ dev.off()
 
 
 paraGraficar=c()
-for (i in seq(0.66, 1.3, 0.02)){
+for (i in seq(0.70, 1.3, 0.02)){
   Vvh=sprintf("%0.3f", i)
   print(i)
   data=read.table(paste("~/SED/TP3/simu/Qm-Vvh", Vvh, ".csv", sep = ""), header = FALSE, sep=',',dec = ".")
@@ -121,7 +121,7 @@ for (i in seq(0.66, 1.3, 0.02)){
 }
 paraGraficar$puntoMedio=paraGraficar$hora_dormir+(paraGraficar$duracion/2)
 paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>24]-24
-paraGraficar$puntoMedio[paraGraficar$puntoMedio>19]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>19]-24
+paraGraficar$puntoMedio[paraGraficar$puntoMedio>12]=paraGraficar$puntoMedio[paraGraficar$puntoMedio>12]-24
 paraGraficar$puntoMedio_rel=(-1)*paraGraficar$puntoMedio+paraGraficar$puntoMedio[paraGraficar$Vvh==1]
 
 
